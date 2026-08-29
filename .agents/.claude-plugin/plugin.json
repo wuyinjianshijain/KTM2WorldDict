@@ -1,0 +1,6 @@
+{
+  "name": "worlddict-skills",
+  "description": "WorldDict project skills, shared by every coding agent. Authoritative source: .agents/skills/",
+  "version": "0.1.0",
+  "author": { "name": "Kzeroko" }
+}

@@ -1,0 +1,24 @@
+name: 提问与其他
+description: 对世界观的疑问、对流程的建议，或不属于上面几类的话题
+title: "[讨论] "
+labels: ["讨论"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        想问的、想说的都可以放这里。设定里“故意留白”的部分也欢迎追问——
+        有些留白是设计，有些只是还没写，问出来才知道是哪一种。
+
+  - type: textarea
+    id: body
+    attributes:
+      label: 内容
+    validations:
+      required: true
+
+  - type: input
+    id: refs
+    attributes:
+      label: 相关文件（可选）
+    validations:
+      required: false

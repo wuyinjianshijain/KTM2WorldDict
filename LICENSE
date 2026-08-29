@@ -1,0 +1,76 @@
+《KTM2》WorldDict 使用与贡献授权条款
+
+版权所有 (c) 2026 Kzeroko。保留所有权利。
+
+本仓库公开可读、欢迎投稿，但不是开源项目。《KTM2》的世界观、角色、剧情与设定文本
+的著作权由项目所有者保留。
+
+
+一、你可以做的事
+
+1. 阅读和下载本仓库的全部内容，用于个人阅读、研究与讨论。
+2. 在评论、攻略、介绍文章中引用本仓库内容，注明出处（项目名与仓库地址）即可。
+3. Fork 本仓库，用于向本项目提交修改建议（Pull Request）。
+4. 基于本世界观进行非商业性的个人二次创作，并注明设定来源。
+
+
+二、需要事先取得书面许可的事
+
+1. 将本仓库内容整体或大部分转载、镜像、重新发布到其他平台。
+2. 任何商业性使用，包括但不限于付费作品、付费社群与广告变现内容。
+3. 以本世界观制作游戏、影视、出版物等衍生作品并对外发行。
+4. 将本仓库内容再授权给第三方。
+
+需要许可时，请在本仓库开 Issue 说明用途。
+
+
+三、贡献者授权
+
+向本仓库提交内容（Issue、Pull Request，以及其中包含的设定与角色提案，下称“贡献”）
+时，你声明并同意以下各项：
+
+1. 权利归属：你对该贡献的著作权仍然属于你。本条款不转让你的著作权。
+
+2. 你有权提交：该贡献由你原创，或你已取得必要授权；它没有侵犯第三方的著作权、
+   商标权或其他权利，也不受你与他人之间协议（例如雇佣合同）的限制。
+
+3. 授予项目的许可：你授予项目所有者及其继受人一项永久的、全球范围的、不可撤销的、
+   免费的、可转授的许可，允许其使用、复制、修改、改编、翻译、合并、公开展示与发行
+   该贡献及其衍生内容，包括用于商业性的游戏及相关衍生作品。
+
+4. 允许修改：你理解贡献被采纳后可能被修改、拆分、改名或与其他内容合并，以便与现有
+   世界观衔接；项目没有原样保留的义务。
+
+5. 没有采纳义务：项目所有者没有采纳任何贡献的义务。
+
+6. 署名：你的署名通过 git 提交历史与 GitHub 贡献者页面保留。贡献者名单在游戏或其他
+   衍生作品中如何呈现，由项目所有者决定。
+
+7. 无对价：贡献是无偿的。除非另有书面约定，提交贡献不产生报酬、分成或雇佣关系。
+
+如果你不接受以上条款，请不要向本仓库提交内容。
+
+
+四、第三方内容
+
+本仓库不接受直接照搬他人受版权保护作品的内容，发现后会被移除。
+如果你认为本仓库的某一部分侵犯了你的权利，请开 Issue 或联系项目所有者，会尽快处理。
+
+
+五、免责
+
+本仓库内容按“现状”提供，不附带任何明示或默示的担保。设定处于持续开发中，随时可能
+变更或废弃。
+
+
+---
+
+English summary (non-binding; the Chinese text above governs):
+
+This repository is source-available, not open source. All rights to the KTM2
+setting are reserved by the owner. You may read it, quote it with attribution,
+and submit contributions. Redistribution, commercial use, and derivative works
+require written permission. By contributing you keep your own copyright and
+grant the project a perpetual, worldwide, irrevocable, royalty-free,
+sublicensable license to use and modify your contribution, including
+commercially.

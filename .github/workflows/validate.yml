@@ -1,0 +1,27 @@
+name: 词条结构校验
+
+# 每次 push 到 main 与每个 Pull Request 都会跑一次，
+# 让投稿者在评审开始前就能看到 frontmatter、id 与链接层面的问题。
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: 校验 frontmatter、id 与相对链接
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 准备 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 运行 WorldDict 结构校验
+        run: python .github/scripts/validate_worlddict.py

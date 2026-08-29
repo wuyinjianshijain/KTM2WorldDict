@@ -1,0 +1,23 @@
+# 《KTM2》WorldDict — 编辑器统一约定
+# 与 .gitattributes 保持一致：文本一律 UTF-8 + LF，Windows 脚本用 CRLF。
+# 多数编辑器（VS Code、Obsidian 插件、JetBrains、Vim）会自动读取这份配置。
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[*.md]
+# Markdown 中行尾的两个空格是换行语法，不能自动裁掉。
+trim_trailing_whitespace = false
+
+[*.py]
+indent_size = 4
+
+[*.ps1]
+end_of_line = crlf

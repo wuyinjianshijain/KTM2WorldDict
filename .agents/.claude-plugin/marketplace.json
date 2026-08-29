@@ -1,0 +1,12 @@
+{
+  "name": "worlddict",
+  "description": "Local marketplace exposing this repository's vendor-neutral .agents/skills tree to Claude Code.",
+  "owner": { "name": "Kzeroko" },
+  "plugins": [
+    {
+      "name": "worlddict-skills",
+      "source": "./",
+      "description": "WorldDict project skills, shared by every coding agent."
+    }
+  ]
+}

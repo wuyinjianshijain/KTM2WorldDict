@@ -1,0 +1,84 @@
+# ---------------------------------------------------------------------------
+# 《KTM2》WorldDict — Git 忽略规则
+#
+# 原则：只提交人写下的设定文本，生成物、个人环境与临时文件一律不进仓库。
+# 新增规则时请写清楚“为什么忽略”，方便后来者判断能不能取消忽略。
+# ---------------------------------------------------------------------------
+
+# --- 生成物：Claude Code 技能链接 -------------------------------------------
+# .agents/skills/ 是技能的唯一权威来源。.claude/skills/ 里的目录联接由
+# .agents/link-claude-skills.ps1 生成，克隆仓库后重跑一次脚本即可，
+# 不要提交，也不要透过它编辑技能文件。
+.claude/skills/
+
+# --- 各家代理工具的个人配置 -------------------------------------------------
+# 团队共享的 .claude/settings.json 正常提交；带 local 的属于个人机器设置。
+.claude/settings.local.json
+.claude/*.local.json
+CLAUDE.local.md
+AGENTS.local.md
+.codex/
+
+# --- 个人草稿区 -------------------------------------------------------------
+# 还没想好、暂时不打算提交的设定草稿放这两个位置，不会被 git 看见。
+_local/
+_scratch/
+*.local.md
+
+# --- 编辑器与知识库工具 -----------------------------------------------------
+.obsidian/
+.trash/
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.code-workspace
+.history/
+*.swp
+*.swo
+*~
+
+# --- 操作系统生成的文件 -----------------------------------------------------
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.AppleDouble
+._*
+.Spotlight-V100
+.Trashes
+
+# --- 工具链缓存 -------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+node_modules/
+.cache/
+
+# --- 临时与备份文件 ---------------------------------------------------------
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
+~$*
+
+# --- 大文件与导出包 ---------------------------------------------------------
+# 美术源文件与打包导出不进这个仓库；需要共享时走 Release 附件或专用资源仓库。
+*.psd
+*.psb
+*.clip
+*.sai2
+*.zip
+*.7z
+*.rar
+/dist/
+/build/
+/export/

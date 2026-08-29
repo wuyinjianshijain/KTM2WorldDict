@@ -1,0 +1,7 @@
+interface:
+  display_name: "JRPG Economy & Content Design"
+  short_description: "Balance JRPG economies, trades, recipes"
+  default_prompt: "Use $jrpg-design to balance this JRPG economy, merchant catalog, or Fabric recipe set."
+
+policy:
+  allow_implicit_invocation: false

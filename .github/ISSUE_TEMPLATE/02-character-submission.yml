@@ -1,0 +1,125 @@
+name: 角色提交
+description: 提交你自己想出来的角色（队友候选、关键 NPC 或背景人物）
+title: "[角色] "
+labels: ["角色提交", "待评审"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        欢迎把你想出来的角色带过来。评审后合理的部分可以合并到本体。
+
+        角色是这个仓库里门槛最高的一类内容，因为她们要在剧情、战斗、台词和关系里同时站得住。
+        提交前请读一遍 `AUTHORING_GUIDE.md` 的“角色”一节——尤其是**想要与需要必须互相冲突**，
+        以及**角色不能靠单一口癖立人设**这两条。
+
+        下面的字段不必全填，但填得越具体，越容易判断她能不能进本体。
+
+  - type: input
+    id: name
+    attributes:
+      label: 角色名
+      description: 中文名（如果有英文或已定专名，一并写出）。
+    validations:
+      required: true
+
+  - type: input
+    id: title-line
+    attributes:
+      label: 头衔行
+      placeholder: 例：兰维里斯王国・白蔷薇骑士团长 / 泽菲利斯家主
+    validations:
+      required: true
+
+  - type: input
+    id: quote
+    attributes:
+      label: 开场引语
+      description: |
+        这个角色最好懂、最有代表性的一句话。判定标准：没读过设定的人看完能立刻说出她大概是什么人。
+        不要写成格言或作者评语；角色说出口的话请用「」。
+      placeholder: 例：「先别急着道歉。你踩到的是我的脚，不是王国的脸面。」
+    validations:
+      required: true
+
+  - type: textarea
+    id: profile
+    attributes:
+      label: 基础档案
+      placeholder: |
+        种族：
+        年龄：
+        所属：
+        职业／身份：
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 人物简介与特质
+      description: 她是谁、现在在做什么、身上最明显的三两个特质。
+    validations:
+      required: true
+
+  - type: textarea
+    id: want-vs-need
+    attributes:
+      label: 想要 vs 需要
+      description: |
+        这一栏是评审重点。角色“想要的”和“真正需要的”必须互相冲突，
+        并且要留下一块不能被主角轻易治好的地方。
+      placeholder: |
+        她想要：
+        她其实需要：
+        两者为什么无法同时满足：
+        主角治不好的部分：
+    validations:
+      required: true
+
+  - type: textarea
+    id: daily-life
+    attributes:
+      label: 她在世界中的日常
+      description: 不打仗、不推剧情的时候，她靠什么过活？住在哪？和谁打交道？
+    validations:
+      required: false
+
+  - type: textarea
+    id: relations
+    attributes:
+      label: 与现有角色、阵营的关系
+      description: 她和现有词条里的谁有关系？立场站在哪一边？和谁天然对立？
+    validations:
+      required: false
+
+  - type: textarea
+    id: combat
+    attributes:
+      label: 战斗与队伍功能（可选）
+      description: 如果想到了打法定位、元素属性或队伍作用，写在这里。
+    validations:
+      required: false
+
+  - type: dropdown
+    id: intent
+    attributes:
+      label: 提交意图
+      options:
+        - 核心队友候选
+        - 关键 NPC
+        - 背景角色 / 世界居民
+        - 只是一个想法，交给维护者决定
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 提交确认
+      options:
+        - label: 这是我自己原创的角色，不是他人作品角色的改名版本。
+          required: true
+        - label: 我已阅读 `CONTRIBUTING.md`，并同意其中的授权条款。
+          required: true
+        - label: 我理解角色被采纳后可能会由维护者调整姓名、立场或经历，以便嵌入现有世界。
+          required: true

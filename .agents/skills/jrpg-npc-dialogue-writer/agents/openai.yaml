@@ -1,0 +1,7 @@
+interface:
+  display_name: "JRPG NPC Dialogue Writer"
+  short_description: "Write guarded, lore-consistent NPC dialogue"
+  default_prompt: "Use $jrpg-npc-dialogue-writer to draft or migrate these NPC dialogue localization entries."
+
+policy:
+  allow_implicit_invocation: false

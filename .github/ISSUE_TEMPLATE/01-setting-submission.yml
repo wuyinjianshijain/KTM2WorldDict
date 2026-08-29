@@ -1,0 +1,111 @@
+name: 设定提交
+description: 提交你自己想出来的世界设定（世界知识 / 地点 / 阵营 / 种族 / 系统 / 历史）
+title: "[设定] "
+labels: ["设定提交", "待评审"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你把想法带过来。
+
+        这边支持提交自己想出来的设定，评审后合理的部分可以合并到本体，
+        一起把 WorldDict 做成一部社区驱动的世界辞典。
+
+        动手前建议先读仓库根目录的 `CONTRIBUTING.md`（怎么提交）和 `AUTHORING_GUIDE.md`（写成什么样）。
+        不用写得像正式词条那样完整——想法本身更重要，格式可以在评审里一起补。
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: 分类
+      description: 这条设定属于哪一类？拿不准就选“还不确定”。
+      options:
+        - 世界知识（魔法、宇宙结构、专名）
+        - 地点（聚落、城市、遗迹、据点）
+        - 阵营（国家、组织、教团、王庭）
+        - 种族
+        - 游戏系统（经济、技能、成长）
+        - 历史与传说
+        - 还不确定
+    validations:
+      required: true
+
+  - type: input
+    id: one-liner
+    attributes:
+      label: 一句话定位
+      description: 一个完全没读过设定的人，看完这句话就能知道这是什么。
+      placeholder: 例：一座靠回收破碎空间残骸维生的边境镇，全镇的饭钱都压在下一次开门上。
+    validations:
+      required: true
+
+  - type: textarea
+    id: content
+    attributes:
+      label: 设定内容
+      description: 具体是什么。写多写少都行，但请写具体的东西，不要只写“神秘而古老”。
+    validations:
+      required: true
+
+  - type: textarea
+    id: in-world-logic
+    attributes:
+      label: 世界内逻辑
+      description: 它为什么存在？谁从中获益，谁替它付出代价？
+      placeholder: |
+        谁获益：
+        谁付出代价：
+        如果它消失了，会发生什么：
+    validations:
+      required: true
+
+  - type: textarea
+    id: player-facing
+    attributes:
+      label: 玩家能看见什么
+      description: |
+        本仓库的门槛是“能进入游戏”——一项设定至少要在地貌、制度、物价、习惯、冲突、任务
+        或角色选择里留下一种痕迹。请至少写出一条玩家真的能观察到的现象。
+      placeholder: 例：宵禁后城门只留侧门，持公会铜牌者仍可通行；没有铜牌的人只能在墙外过夜，旅店因此在城外多开了一间。
+    validations:
+      required: true
+
+  - type: textarea
+    id: relations
+    attributes:
+      label: 与现有词条的关系
+      description: 会牵动哪些已有的角色、阵营、地点或系统？和现有设定有冲突吗？知道哪写哪。
+    validations:
+      required: false
+
+  - type: dropdown
+    id: spoiler
+    attributes:
+      label: 是否涉及核心剧透
+      description: 涉及世界真相、隐藏因果的内容会被放进开发者资料层，不进公开图鉴。
+      options:
+        - 否，属于公开层内容
+        - 是，涉及核心剧透
+        - 不确定
+    validations:
+      required: true
+
+  - type: textarea
+    id: origin
+    attributes:
+      label: 灵感来源（可选）
+      description: 如果受到某部作品启发，写出来有助于评审判断改写幅度是否足够。
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 提交确认
+      options:
+        - label: 这是我自己原创的设定，没有直接照搬他人受版权保护的作品。
+          required: true
+        - label: 我已阅读 `CONTRIBUTING.md`，并同意其中的授权条款。
+          required: true
+        - label: 我理解设定被采纳后可能会由维护者修改，以便与现有世界观衔接。
+          required: true

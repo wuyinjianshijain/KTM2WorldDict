@@ -1,0 +1,61 @@
+name: 问题反馈
+description: 报告设定矛盾、事实错误、失效链接或表述问题
+title: "[问题] "
+labels: ["问题反馈"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        世界辞典最怕的不是缺内容，而是两处内容互相打架却没人发现。
+        看到对不上的地方，麻烦提出来。
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 问题类型
+      options:
+        - 设定矛盾（两处内容互相冲突）
+        - 事实错误（年表、数值、归属对不上）
+        - 失效链接或文件路径
+        - 错别字、排版、标点约定
+        - 语气问题（口癖重复、台词同构、公开层出现剧透）
+        - 其他
+    validations:
+      required: true
+
+  - type: input
+    id: files
+    attributes:
+      label: 涉及文件
+      description: 写出文件路径；涉及多个就都列出来。
+      placeholder: 例：Characters/Cecilia_Zephyris.md、Factions/Lanviris_Kingdom.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: 问题描述
+      description: 尽量引用原文，并说明它和什么对不上。
+      placeholder: |
+        A 处写的是：
+        B 处写的是：
+        冲突在于：
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 你认为应该怎么处理
+      description: 有倾向就写；只是发现问题、没有结论也完全可以。
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: offer
+    attributes:
+      label: 你愿意动手吗
+      options:
+        - label: 我愿意自己提一个 PR 来修这个问题。
+          required: false

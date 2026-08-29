@@ -1,0 +1,44 @@
+# ---------------------------------------------------------------------------
+# 《KTM2》WorldDict — Git 属性
+#
+# 目标：Windows / macOS / Linux 混合协作时，换行、编码与差异显示保持一致，
+# 避免出现“整份文件都被改动”的伪 diff。
+# ---------------------------------------------------------------------------
+
+# 默认：由 Git 判定文本或二进制，文本在仓库内统一存为 LF。
+* text=auto eol=lf
+
+# 设定资料与配置：统一 LF。
+# diff=markdown 让 diff 的定位行显示所在标题，长词条评审时更容易看懂改的是哪一段。
+*.md    text eol=lf diff=markdown
+*.txt   text eol=lf
+*.json  text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.py    text eol=lf
+
+# Windows 专用脚本必须是 CRLF，否则部分 PowerShell 主机会解析失败。
+*.ps1   text eol=crlf
+*.psm1  text eol=crlf
+*.cmd   text eol=crlf
+*.bat   text eol=crlf
+
+# 二进制：不做换行转换，也不做逐行 diff。
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.pdf   binary
+*.ttf   binary
+*.otf   binary
+*.woff  binary
+*.woff2 binary
+*.ogg   binary
+*.wav   binary
+*.mp3   binary
+
+# GitHub 语言统计：这是一份设定资料库，不希望被判定成脚本项目。
+.agents/**  linguist-documentation
+.github/**  linguist-documentation

@@ -1,0 +1,7 @@
+interface:
+  display_name: "JRPG World & Game Design"
+  short_description: "Build production-ready JRPG world content"
+  default_prompt: "Use $jrpg-world-building-game-design to develop this setting and maintain its WorldDict canon."
+
+policy:
+  allow_implicit_invocation: false
