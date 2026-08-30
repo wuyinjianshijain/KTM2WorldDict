@@ -58,6 +58,20 @@ WorldDict 是《KTM2》的现行世界设定库。它既记录玩家能够在旅
 
 现行词条使用稳定 ID 和 `canon / draft / unknown / conflict / deprecated` 状态，具体规则见[编写规范](AUTHORING_GUIDE.md)。本次重构的来源、合并裁决与 legacy 清理记录保存在[迁移报告](MIGRATION_REPORT.md)中；迁移完成后，旧资料不再参与权威判断。
 
+### 关联仓库
+
+| 仓库 | 地址 | 关系 |
+| --- | --- | --- |
+| WorldDict（本仓库） | <https://github.com/Kzeroko/KTM2WorldDict> | 世界设定与经济设计目标 |
+| IsekaiExpansion | <https://github.com/Kzeroko/IsekaiExpansion> | 游戏实装。技能、属性、法术与技能树以它的游戏数据为准 |
+
+两者的权威方向不对称，写内容前务必分清：
+
+- **技能、属性、法术与技能树**：以 IsekaiExpansion 的游戏数据为准，本仓库只记录已经存在的内容。
+- **经济价格**：以本仓库的[经济、货币与悬赏系统](Systems/Economy_System.md)为准，IsekaiExpansion 的商人报价向它对齐。
+
+工具链默认两个仓库**并列检出**（`KTM2WorldDict` 与 `IsekaiExpansion` 同级），因此可以互相按 `../` 定位。不要在任何文档或脚本里写死本机绝对路径；确需指向本机资源（例如整合包安装目录）时，走各自仓库的配置文件。
+
 ## 6. 参与贡献
 
 **如果有想法，可以向我这里提交。** 这边支持提交自己想出来的设定和角色，提交后合理的部分可以合并到本体，达成社区驱动的世界辞典。

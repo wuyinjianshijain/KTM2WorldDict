@@ -80,7 +80,7 @@ updated: 2026-07-17
 | 奥秘 | 纯魔力、空间与术式本身 | 解析、反制、搬运 | 是学术分类，不是“什么都能做” |
 | 星界 | 世界边界、相位与宏观重力 | 定位、置换、切界 | 高负荷、长冷却，受星塔严格监测 |
 
-详细技能、状态与资源键见[元素与术式技能系统](../Systems/Skill_System_Elements.md)。
+法强、天赋与状态见[属性、天赋与状态系统](../Systems/Attribute_and_Status_System.md)；法术清单与各系覆盖现状见[魔法与法术系统](../Systems/Magic_and_Spell_System.md)。
 
 ## 6. 精魂与借力
 

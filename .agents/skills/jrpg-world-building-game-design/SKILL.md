@@ -13,7 +13,7 @@ Do not silently invoke the economy or dialogue skills. When those specialties ar
 
 ## Locate and classify the WorldDict
 
-Use the WorldDict root supplied by the user. Otherwise prefer the current workspace when it contains the category folders. Use the legacy path `D:\KTM-Project-Assets\[WorldDict]` only when it exists and clearly matches the task. Never create a parallel WorldDict root by assumption.
+Use the WorldDict root supplied by the user. Otherwise prefer the current workspace when it contains the category folders. The canonical repository is <https://github.com/Kzeroko/KTM2WorldDict>; related checkouts (`IsekaiExpansion`, `kzeroko.github.io`) sit beside it, so reach them with `../<repo>` rather than an absolute path. Never hard-code a machine-local path, and never create a parallel WorldDict root by assumption.
 
 Before designing or editing:
 
