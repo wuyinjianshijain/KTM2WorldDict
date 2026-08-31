@@ -15,7 +15,7 @@ Keep this skill focused on economic and implementable game-content design. Route
 
 1. Identify the requested deliverable: balance analysis, price table, merchant pool, recipe policy, KubeJS patch, or review.
 2. Inspect only the relevant project files and WorldDict sources. Treat `legacy/` as historical evidence, not current canon, unless the user promotes it.
-3. Establish economic anchors before assigning exceptional prices. Read [economy-and-progression.md](references/economy-and-progression.md) for the inherited currency model and balancing checks.
+3. Establish economic anchors before assigning exceptional prices. Read [economy-and-progression.md](references/economy-and-progression.md) for the authority order, the inherited currency model, and balancing checks. When the WorldDict is present, its `Systems/Economy_System.md` outranks the legacy anchors.
 4. Derive processed-item values from inputs, labor, scarcity, risk, progression gate, and intended player behavior. Explain deliberate deviations.
 5. Test acquisition loops, resale, crafting decomposition, renewable inputs, merchant refreshes, and multiplayer transfer for exploits.
 6. Translate the design into the requested artifact. When editing Fabric/KubeJS content, read [fabric-content-rules.md](references/fabric-content-rules.md) first and verify project-local APIs before using legacy builder methods.

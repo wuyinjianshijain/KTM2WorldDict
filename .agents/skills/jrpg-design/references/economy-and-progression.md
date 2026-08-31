@@ -1,8 +1,12 @@
 # Economy and progression reference
 
+## Authority
+
+When the KTM2 WorldDict is available (this repository, or checked out beside the target project), [`Systems/Economy_System.md`](../../../../Systems/Economy_System.md) is the economic authority. Its currency contract, tier price bands, food formula, and crafting-incentive rule are design targets that merchant offers align to, not the other way round. Read it first; treat this file as fallback for projects that have no such document, and as balancing method regardless.
+
 ## Inherited anchors
 
-Use these as legacy defaults, not immutable canon. Prefer current project data or explicit user direction when they conflict.
+Use these as legacy defaults, not immutable canon. Prefer current project data or explicit user direction when they conflict. Two entries below are already superseded for KTM2 and must not be reused there: iron is `3 S` per ore and `12 S` per sword rather than `12 C` per ingot, and the progression bands are replaced by the T1-T5 tier table.
 
 - `1 copper (C) = 1 value point`
 - `1 silver (S) = 100 C`
@@ -17,7 +21,7 @@ The old design used a `3-5x` merchant premium for gatherable monster drops and r
 
 ## Progression bands
 
-Use these bands as a first-pass scale and retune them against actual income-per-hour:
+Use these bands as a first-pass scale and retune them against actual income-per-hour. Where the WorldDict economy doc exists, use its T1-T5 tier table instead: tiers track adventurer rank rather than material name, and each step is roughly `3.2x`.
 
 | Band | Legacy range | Intended role |
 |---|---:|---|
