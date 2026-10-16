@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """WorldDict 词条结构校验。
 
-检查《KTM2》WorldDict 的设定文件是否满足 AUTHORING_GUIDE.md 第 5 节的验收要求：
-UTF-8 编码、frontmatter 完整、id 唯一、状态与类型取值合法、相对链接有效。
+检查《KTM2》WorldDict 的设定文件是否满足 AUTHORING_GUIDE.md 的验收要求：
+UTF-8 编码、frontmatter 完整、id 唯一、状态与类型取值合法、相对链接有效，
+以及第 2.2 节的词条边界——不得出现游戏内 Wiki 章节与实现细节。
 
 用法：
     python .github/scripts/validate_worlddict.py           # 校验全库
@@ -25,7 +26,8 @@ if hasattr(sys.stdout, "reconfigure"):
 REPO = Path(__file__).resolve().parents[2]
 
 # 需要校验的词条目录；其余目录（.agents、.github、.claude）是工具与流程文件，不套用词条规范。
-CONTENT_DIRS = ["Characters", "Factions", "Locations", "Lore", "Races", "Systems"]
+# Systems/ 已撤销：它积累的是游戏内 Wiki 内容，世界内的那一半已改写进 Lore/。
+CONTENT_DIRS = ["Characters", "Factions", "Locations", "Lore", "Races"]
 ROOT_DOCS = [
     "README.md",
     "AUTHORING_GUIDE.md",
@@ -37,11 +39,29 @@ ROOT_DOCS = [
 REQUIRED_KEYS = ["id", "type", "title", "status", "updated"]
 VALID_STATUS = {"canon", "draft", "unknown", "conflict", "deprecated"}
 VALID_TYPE = {
-    "character", "location", "faction", "race", "lore", "system",
+    "character", "location", "faction", "race", "lore",
     "index", "guide", "report",
 }
 
 ID_PATTERN = re.compile(r"^[a-z][a-z0-9]*\.[a-z0-9-]+$")
+
+# AUTHORING_GUIDE.md 第 2.2 节：这些章节属于游戏内文档或凭空想象，不进入词条。
+# 允许 README 与规范本身讨论它们，所以只检查 CONTENT_DIRS 下的词条。
+BANNED_HEADINGS = [
+    (re.compile(r"^#{1,6}\s.*美术、?音频"), "美术 / 音频 / 关卡制作指令不进入词条，详见 AUTHORING_GUIDE.md 第 2.2 节。"),
+    (re.compile(r"^#{1,6}\s.*任务与状态变化"), "任务清单与世界状态变化表不进入词条，改写成「故事落点」。"),
+    (re.compile(r"^#{1,6}\s.*任务线与可见变化"), "任务清单不进入词条，改写成「故事落点」。"),
+    (re.compile(r"^#{1,6}\s.*UI、?程序"), "UI 与程序实现要求属于游戏内文档，不进入词条。"),
+    (re.compile(r"^#{1,6}\s.*待完成池"), "实装进度与待办不进入词条，查游戏内文档或 issue。"),
+    (re.compile(r"^#{1,6}\s.*实装状态"), "本仓库不宣布实装状态，以游戏内文档为准。"),
+]
+
+# 实现细节：注册 ID、占位符与数据表名不属于世界设定。行内代码会被 strip_code_blocks 擦掉，
+# 因此这里命中的都是写进正文的实现细节。
+BANNED_INLINE = [
+    (re.compile(r"isekaiexpansion:"), "正文不写注册 ID；需要指认某项内容时写它的世界内称呼。"),
+    (re.compile(r"\{ise_[a-z_]+\}"), "正文不写本地化占位符。"),
+]
 DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 LINK_PATTERN = re.compile(r"!?\[[^\]]*\]\(\s*([^)\s]+)")
 FENCE_PATTERN = re.compile(r"^\s*(```|~~~)")
@@ -177,7 +197,18 @@ def check_file(path: Path, seen_ids: dict[str, Path]) -> list[Problem]:
         if isinstance(tags, list) and not tags:
             problems.append(Problem(path, 1, "tags 为空。至少写一个标签，方便检索与归类。"))
 
+    in_content_dir = any(
+        part in CONTENT_DIRS for part in path.relative_to(REPO).parts[:-1]
+    )
+
     for number, line in strip_code_blocks(text):
+        if in_content_dir:
+            for pattern, message in BANNED_HEADINGS:
+                if pattern.match(line):
+                    problems.append(Problem(path, number, message))
+            for pattern, message in BANNED_INLINE:
+                if pattern.search(line):
+                    problems.append(Problem(path, number, message))
         for target in LINK_PATTERN.findall(line):
             if target.startswith(("http://", "https://", "mailto:", "#", "<")):
                 continue
@@ -203,7 +234,7 @@ def main(argv: list[str]) -> int:
 
     print(f"已检查 {len(targets)} 个文件。")
     if not problems:
-        print("校验通过：frontmatter、id、状态与链接都没有问题。")
+        print("校验通过：frontmatter、id、状态、链接与词条边界都没有问题。")
         return 0
 
     print(f"\n发现 {len(problems)} 处问题：\n")

@@ -76,5 +76,5 @@ updated: 2026-07-17
 
 - 任务 UI 必须显示风险来源、预付、失败结算、附加目标与救援条款。
 - 公会不是无穷任务生成器。公告板内容随季节、地区状态和居民生活变化。
-- 经济与评级见[经济、货币与悬赏系统](../Systems/Economy_System.md)。
+- 货币、工价与悬赏经济见[货币、工价与生计](../Lore/Economy_and_Livelihood.md)。
 - 初期支部示例见[澄晶前哨镇](../Locations/Lucentrystel_Outpost.md)。

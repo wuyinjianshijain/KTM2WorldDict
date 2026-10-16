@@ -14,8 +14,8 @@ Keep this skill focused on economic and implementable game-content design. Route
 ## Workflow
 
 1. Identify the requested deliverable: balance analysis, price table, merchant pool, recipe policy, KubeJS patch, or review.
-2. Inspect only the relevant project files and WorldDict sources. Treat `legacy/` as historical evidence, not current canon, unless the user promotes it.
-3. Establish economic anchors before assigning exceptional prices. Read [economy-and-progression.md](references/economy-and-progression.md) for the authority order, the inherited currency model, and balancing checks. When the WorldDict is present, its `Systems/Economy_System.md` outranks the legacy anchors.
+2. Inspect only the relevant project files and WorldDict sources. Treat `legacy/` as historical evidence, not current canon, unless the user promotes it. Read in-world anchors from the WorldDict and shipped prices from the game's own docs (<https://kentomahou.com/zh-cn/wiki/trading/>); do not take a number from the WorldDict, which by design carries none beyond the living anchors.
+3. Establish economic anchors before assigning exceptional prices. Read [economy-and-progression.md](references/economy-and-progression.md) first: its Authority section states which of three sources answers which question, and its KTM2 economic contract section holds the binding currency contract, tier bands, food formula, crafting check, bounty bands and reference prices. That contract lives in this skill, not in the WorldDict - the WorldDict holds the in-world anchors (wages, living costs, price causes) that the contract is derived from, and **never** holds balance tables.
 4. Derive processed-item values from inputs, labor, scarcity, risk, progression gate, and intended player behavior. Explain deliberate deviations.
 5. Test acquisition loops, resale, crafting decomposition, renewable inputs, merchant refreshes, and multiplayer transfer for exploits.
 6. Translate the design into the requested artifact. When editing Fabric/KubeJS content, read [fabric-content-rules.md](references/fabric-content-rules.md) first and verify project-local APIs before using legacy builder methods.
@@ -31,6 +31,7 @@ Keep this skill focused on economic and implementable game-content design. Route
 - Separate design recommendation from confirmed project behavior.
 - Do not invent mod IDs, recipe APIs, trade builders, item counts, or tags.
 - Preserve existing formatting, encoding, and surrounding code when implementing changes.
+- Do not write balance tables, tier bands or price contracts into a WorldDict entry. When a pricing decision needs recording, it belongs in this skill's economy reference; what the WorldDict may gain is the in-world consequence (who can now afford what, who got squeezed).
 
 ## Output contract
 

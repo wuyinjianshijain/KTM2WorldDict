@@ -19,7 +19,8 @@ Before drafting:
 2. Locate the relevant character profile from the user-provided path or current WorldDict. Search by canonical name and aliases; do not assume one fixed filename.
 3. Extract a compact voice lock: identity, present goal, temperament, social posture, faction vocabulary, forbidden behaviors, and how the relationship tier changes expression.
 4. Mark missing facts as unknown. Ask only when a missing fact would materially change the requested dialogue; otherwise make a conservative, reversible choice.
-5. For Isekai Expansion interaction keys, read [dialogue-logic.md](references/dialogue-logic.md) before writing.
+5. Take character facts, voice and relationships from the WorldDict; take mechanical facts (stats, spells, tiers, prices, what is implemented) from the game's own docs (for KTM2: <https://kentomahou.com/>). A WorldDict carries no values by design, and a character card's combat and personal-arc sections are explicitly marked WIP and non-canon - never let a line assert a mechanic or a quest outcome sourced from them.
+6. For Isekai Expansion interaction keys, read [dialogue-logic.md](references/dialogue-logic.md) before writing.
 
 ## Drafting workflow
 

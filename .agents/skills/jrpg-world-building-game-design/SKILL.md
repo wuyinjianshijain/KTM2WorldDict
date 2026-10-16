@@ -22,7 +22,37 @@ Before designing or editing:
 3. Search canonical names, aliases, IDs, factions, locations, systems, and linked concepts across current files.
 4. Read only the files needed for the task, then expand when a dependency or conflict appears.
 5. Treat `legacy/` as historical input, not authoritative canon, unless the user explicitly promotes it. If a completed `MIGRATION_REPORT.md` records that legacy material was absorbed and removed, do not recreate or cite those deleted files as active sources.
-6. Resolve authority in this order: current user instruction, project-specific authoring guide, dedicated current document, current overview/index, then legacy material. Report unresolved conflicts instead of silently choosing.
+6. Resolve authority in this order: current user instruction, **the game's own documentation** (see below), project-specific authoring guide, dedicated current document, current overview/index, then legacy material. Report unresolved conflicts instead of silently choosing.
+
+## Scope contract: a WorldDict is background lore, not a game wiki
+
+This is the single most important rule in this skill, and the one it has failed before. A WorldDict exists so that writers can draw stories, doujin work and quests from it, and so players can understand the world. It does **not** document the game's implementation.
+
+**Authority is asymmetric. Learn which side a fact belongs to before writing it.**
+
+| Fact | Authority |
+| --- | --- |
+| Stats, talent ranks, spell lists, tiers, skill-tree nodes, status effects, prices, whether something is implemented | **The game's own docs.** For KTM2: <https://kentomahou.com/>, source at `../kzeroko.github.io/src/content/{wiki,dev}/` |
+| History, institutions, people, motives, culture, causality, what a thing means in the world | **The WorldDict** |
+
+When the two disagree, the game's docs win and the WorldDict prose gets corrected — never the reverse.
+
+**Never write these into a WorldDict entry:**
+
+- numbers, multipliers, formulas, tier price bands;
+- resource keys, registry IDs, localization placeholders, data paths;
+- skill-tree node tables, spell catalogs, status registries;
+- implementation status, completion percentages, gap lists, backlogs, schedules;
+- art, audio or level-design directives;
+- quest lists and world-state tables for quests that do not exist.
+
+The test is one question: **would a balance patch make this sentence wrong?** If yes, it belongs in the game's docs. Qualitative world rules are fine ("a weave over the load limit is refused by the world"); the limit's value is not.
+
+**Before writing about any game-internal subject**, read the corresponding page in the game's docs and follow [game-doc-sync.md](references/game-doc-sync.md), which gives the reconciliation pass, where the pages live, and the three failure modes that look like setting but are not. Writing a magic, progression or economy entry from imagination is how a WorldDict turns into a stale wiki. If the game docs are not reachable, say so and keep the entry qualitative rather than inventing specifics.
+
+**Unimplemented design** is labelled, never asserted: `status: draft`, or a `（WIP 设计 · 非正典）` marker on the section heading plus a non-canon note on its first line. It must not be cited as established fact by other entries, and must not appear in public-facing material.
+
+**End every world entry with an authority-boundary block** naming the game-doc page it defers to and stating that the entry does not copy its values.
 
 ## Content model
 
@@ -38,7 +68,7 @@ The folder taxonomy is stable; the internal Markdown schema is allowed to evolve
 
 1. Restate the production decision being made and identify constraints already fixed by canon.
 2. Find the design's core tension, player-facing promise, and consequences for ordinary life.
-3. Develop only the dimensions needed by the request: narrative, society, ecology, visual language, gameplay, progression, quests, encounters, dialogue implications, or production dependencies.
+3. Develop only the dimensions needed by the request: narrative, society, ecology, daily life, information asymmetry, cost and consequence, dialogue implications, and the story hooks a writer could act on. Do not develop production dependencies or implementation plans — see the scope contract.
 4. Connect the design to discovered party members and existing systems when the connection is meaningful; do not force cameos.
 5. Separate public belief, institutional account, and hidden truth when contested history matters. Do not mechanically add all three layers to unrelated content.
 6. Detect contradictions and missing decisions. Put the recommended option in the main design; list alternatives with tradeoffs only for consequential uncertainty.
@@ -60,7 +90,7 @@ It is a completion gate, not polish. The reference carries the full method; thes
 - Default to Simplified Chinese unless the user requests another language or the target document establishes a different convention.
 - **Match register to audience.** Internal design text is specific, restrained, concrete, and decision-oriented. Player- and reader-facing text — opening quotes, public character introductions, epigraphs, item and quest copy — must be enjoyable cold, by someone with no prior context, in the project's established tone. Applying the internal register to public text is a known failure of this skill: it yields pages that read like status reports.
 - Replace vague scale or mystery adjectives with observable evidence, information asymmetry, cost, and consequence.
-- Make every substantial section useful to narrative, systems, art, level design, audio, UI, localization, or implementation.
+- Make every substantial section useful to someone writing a story, a doujin, a quest or a scene — or to a player trying to understand the world. Sections that only a build pipeline could use (art, audio, level, UI, implementation directives) do not belong in a WorldDict; the entry's `故事落点` / story-hooks block carries the writer-facing value instead.
 - When presenting multilingual names, use `Localized name (English / Japanese) -- internal short name` only for languages that are actually established.
 - Do not invent certainty. Label assumptions and proposals.
 - Do not add AI disclaimers or process chatter to production documents.
@@ -68,5 +98,7 @@ It is a completion gate, not polish. The reference carries the full method; thes
 ## Scope and writes
 
 Answer in conversation when the user asks for ideation, explanation, or review. Create or edit WorldDict files only when the request asks for an artifact or repository change. Preserve unrelated user content, encoding, line endings, and naming conventions.
+
+After writing or moving files in a WorldDict that ships a validator, run it and fix what it reports. For KTM2: `python .github/scripts/validate_worlddict.py`. It checks frontmatter, unique IDs, relative links, and the scope boundary above — a banned section heading or a stray registry ID fails the build, so do not hand back work that has not passed it.
 
 For high-impact canon changes, include a compact impact note covering affected characters, factions, systems, chronology, quests, and localization. Do not propagate speculative changes as canon without approval.

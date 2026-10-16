@@ -1,5 +1,5 @@
 name: 设定提交
-description: 提交你自己想出来的世界设定（世界知识 / 地点 / 阵营 / 种族 / 系统 / 历史）
+description: 提交你自己想出来的世界设定（世界知识 / 地点 / 阵营 / 种族 / 历史）
 title: "[设定] "
 labels: ["设定提交", "待评审"]
 body:
@@ -14,6 +14,10 @@ body:
         动手前建议先读仓库根目录的 `CONTRIBUTING.md`（怎么提交）和 `AUTHORING_GUIDE.md`（写成什么样）。
         不用写得像正式词条那样完整——想法本身更重要，格式可以在评审里一起补。
 
+        **一点说明：WorldDict 是世界背景库，不是游戏内 Wiki。**
+        属性数值、技能节点、法术清单与实装进度属于[游戏内文档](https://kentomahou.com/)，
+        这边收的是「这东西在厄达斯是什么、谁受影响、为什么重要」。
+
   - type: dropdown
     id: category
     attributes:
@@ -24,7 +28,6 @@ body:
         - 地点（聚落、城市、遗迹、据点）
         - 阵营（国家、组织、教团、王庭）
         - 种族
-        - 游戏系统（经济、技能、成长）
         - 历史与传说
         - 还不确定
     validations:
@@ -74,7 +77,7 @@ body:
     id: relations
     attributes:
       label: 与现有词条的关系
-      description: 会牵动哪些已有的角色、阵营、地点或系统？和现有设定有冲突吗？知道哪写哪。
+      description: 会牵动哪些已有的角色、阵营、地点或世界知识？和现有设定有冲突吗？知道哪写哪。
     validations:
       required: false
 
